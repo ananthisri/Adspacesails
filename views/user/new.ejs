@@ -1,0 +1,34 @@
+<div class="formcss">
+<form action="/user/create" method="POST" id="signup-form" class="form-signin">
+	<h2 class="form-signin-heading">Create an account</h2><br />
+
+	
+	<% if(flash && flash.err) { %>
+		<ul class="alert alert-success">
+	<% Object.keys(flash.err).forEach(function(error) { %>
+		<li><%- JSON.stringify(flash.err[error]) %></li>
+	<% }) %>
+	</ul>
+	<% } %>
+
+
+	<div id="textbox">
+	<input type="text" class="form-control" placeholder="your name" name="name"><br />
+
+	<input type="text" class="form-control" placeholder="your Company Name" name="cmpyname"><br />
+
+	<input type="text" class="form-control" placeholder="email address" name="email"><br />
+
+	<input type="password" class="form-control" placeholder="password" id="npassword" name="password"><br />
+
+	<input type="password" class="form-control" placeholder="password confirmation" name="confirmation"><br />
+
+	<input type="text" class="form-control" placeholder="Adspace cost is 0" value="0" name="adspaceval"><br />
+
+	<input type="text" class="form-control" placeholder="Total Adspace is 0" value="0" name="adspacecount"><br /><br />
+	</div>
+
+	<input type="submit" class="btn btn-lg btn-primary btn-block" value="create account" />
+	<input type="hidden" name="_csrf" value="<%=_csrf %>" />
+</form>
+</div>
